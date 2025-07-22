@@ -1,0 +1,127 @@
+/* prompt.css - Retro Fun Styles for Prompt Search Page */
+
+/* 1. Global Typography & Background to match WWFTV theme */
+body.search-page {
+  background: #fff;
+  color: #333;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+}
+.main-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 2. Header Section Matching Other Genre Pages */
+.search-header {
+  background: #d7eaf2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  margin: 20px auto;
+  max-width: 960px;
+}
+.search-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #1a1a2e;
+}
+
+/* 3. Back Button Styling */
+.home-button {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  padding: 10px 16px;
+  background: #e67e22;
+  color: #fff;
+  text-decoration: none;
+  font-family: inherit;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.home-button:hover {
+  background: #d35400;
+}
+
+/* 4. Filter Prompts Grid & Boxes */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px auto;
+  max-width: 960px;
+}
+.filters label {
+  display: block;
+  padding: 8px 12px;
+  border: 2px solid #1a1a2e;
+  border-radius: 6px;
+  background: #f4f4f4;
+  color: #1a1a2e;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.2s, background 0.2s;
+}
+.filters input {
+  margin-right: 6px;
+}
+.filters label:hover {
+  transform: translateY(-3px);
+  background: #e1eef6;
+}
+
+/* 5. Search Button */
+#searchBtn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  font-family: inherit;
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+#searchBtn:hover {
+  background: #333;
+}
+
+/* 6. Results Grid & Cards */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 30px auto 60px;
+  max-width: 960px;
+}
+.movie-card {
+  background: #f4f4f4;
+  padding: 16px;
+  border: 2px solid #1a1a2e;
+  border-radius: 6px;
+  transition: box-shadow 0.3s;
+}
+.movie-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.movie-card h4 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #1a1a2e;
+}
+.movie-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+}

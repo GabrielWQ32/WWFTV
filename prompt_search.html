@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WWFTV – Prompt Search</title>
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Retro Prompt Styles -->
+  <link rel="stylesheet" href="prompt.css">
+</head>
+<body class="search-page">
+
+  <div class="main-container">
+    <!-- Retro Header + Back Button -->
+    <header class="search-header">
+      <a href="index.html" class="home-button">← Back to Home</a>
+      <h1>What Are We Watching</h1>
+    </header>
+
+    <!-- Filter Prompts -->
+    <div class="filters">
+      <!-- Character & Crew Prompts -->
+      <label><input type="checkbox" value="femaleLead" /> Female Lead</label>
+      <label><input type="checkbox" value="maleLead" /> Male Lead</label>
+      <label><input type="checkbox" value="womenDirector" /> Women Director</label>
+      <label><input type="checkbox" value="womenScreenwriter" /> Women Screenwriter</label>
+      <!-- Awards & Recognition -->
+      <label><input type="checkbox" value="oscarWinner" /> Oscar Winner</label>
+      <label><input type="checkbox" value="cannesWinner" /> Cannes Winner</label>
+      <!-- Film Type -->
+      <label><input type="checkbox" value="indieFilm" /> Indie Film</label>
+      <label><input type="checkbox" value="documentary" /> Documentary</label>
+      <label><input type="checkbox" value="shortFilm" /> Short Film</label>
+      <label><input type="checkbox" value="featureFilm" /> Feature Film</label>
+      <!-- Style & Era -->
+      <label><input type="checkbox" value="blackAndWhite" /> Black & White</label>
+      <label><input type="checkbox" value="modernRelease" /> Modern Release</label>
+      <label><input type="checkbox" value="classicHollywood" /> Classic Hollywood</label>
+      <label><input type="checkbox" value="silentFilm" /> Silent Film</label>
+      <label><input type="checkbox" value="noir" /> Noir</label>
+      <label><input type="checkbox" value="anthology" /> Anthology</label>
+      <label><input type="checkbox" value="artHouse" /> Art House</label>
+      <!-- Themes & Genres -->
+      <label><input type="checkbox" value="comedy" /> Comedy</label>
+      <label><input type="checkbox" value="drama" /> Drama</label>
+      <label><input type="checkbox" value="action" /> Action</label>
+      <label><input type="checkbox" value="romance" /> Romance</label>
+      <label><input type="checkbox" value="horror" /> Horror</label>
+      <label><input type="checkbox" value="thriller" /> Thriller</label>
+      <label><input type="checkbox" value="sciFi" /> Sci‑Fi</label>
+      <label><input type="checkbox" value="fantasy" /> Fantasy</label>
+      <label><input type="checkbox" value="musical" /> Musical</label>
+      <label><input type="checkbox" value="biopic" /> Biopic</label>
+      <label><input type="checkbox" value="war" /> War</label>
+      <label><input type="checkbox" value="crime" /> Crime</label>
+      <label><input type="checkbox" value="comingOfAge" /> Coming‑of‑Age</label>
+      <label><input type="checkbox" value="sports" /> Sports</label>
+      <label><input type="checkbox" value="superhero" /> Superhero</label>
+      <label><input type="checkbox" value="family" /> Family</label>
+      <label><input type="checkbox" value="LGBTQPlus" /> LGBTQ+</label>
+      <label><input type="checkbox" value="foreignLanguage" /> Foreign Language</label>
+      <label><input type="checkbox" value="basedOnTrueStory" /> Based on True Story</label>
+      <label><input type="checkbox" value="cultClassic" /> Cult Classic</label>
+    </div>
+
+    <!-- Search Button -->
+    <button id="searchBtn">Search</button>
+
+    <!-- Results Grid -->
+    <div id="results"></div>
+  </div>
+
+  <!-- Script Logic: fetch external movies.json -->
+  <script>
+  let movies = [];
+
+  // 1) Load movie data
+  fetch('movies.json')
+    .then(res => res.json())
+    .then(data => movies = data)
+    .catch(err => console.error('Error loading movies.json:', err));
+
+  const filters   = document.querySelectorAll('.filters input');
+  const resultsDiv = document.getElementById('results');
+
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    // Gather all checked values
+    const active = Array.from(filters)
+                        .filter(f => f.checked)
+                        .map(f => f.value);
+
+    // Filter: for each movie, every active key must match either a truthy prop or a genre
+    const filtered = movies.filter(movie =>
+      active.every(key => {
+        if (movie[key] === true) return true;                 // boolean flag match
+        return Array.isArray(movie.genres) && movie.genres.includes(key); // genre match
+      })
+    );
+
+    // Render results
+    if (filtered.length) {
+      resultsDiv.innerHTML = filtered
+        .map(m => `<div class="movie-card"><h4>${m.title}</h4></div>`)
+        .join('');
+    } else {
+      resultsDiv.innerHTML = '<p>No movies match your criteria.</p>';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+/* 1. Container for the header/title */
+.profile-header {
+  background: #aedff7;            /* muted baby‑blue */
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+  text-align: center;
+}
+
+/* 2. Back/Home button inside the header box */
+.profile-header .home-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #ff8c00;           /* same orange */
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.profile-header .home-button:hover {
+  background: #e07b00;
+}
+
+/* 3. Title styling */
+.profile-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #333;
+}
+
+/* 4. Body content under header */
+.profile-content {
+  max-width: 700px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+  color: #333;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* 5. Section headings within content */
+.profile-content h2 {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #333;
+}
+/* Header hover */
+.profile-header:hover {
+  background: #c6a774; /* slightly darker than your default */
+}
+
+/* Home button hover */
+.profile-header .home-button:hover {
+  background: #e07b00; /* a darker orange */
+}

@@ -1,0 +1,202 @@
+/* simple.css */
+
+/* Base reset & tan background */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f9f4ee; /* Homepage tan */
+  font-family: system-ui, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Hero‑simple segment */
+.hero-simple {
+  background-color: #d8e8f2; /* Muted baby blue */
+  padding: 3rem 1rem 6rem;    /* extra bottom padding for button space */
+  text-align: center;
+  position: relative;
+}
+.hero-simple h1 {
+  font-size: 2.5rem;
+  color: #362f27;
+  margin-bottom: 1rem;
+}
+
+/* Back to Home button */
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  text-decoration: none;
+  background-color: #d9782d; /* Rustic orange */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+}
+.back-button:hover {
+  background-color: #c66625;
+  transform: translateY(-2px);
+}
+
+/* Article area */
+.article-simple {
+  max-width: 700px;
+  margin: 4rem auto 2rem;
+  padding: 0 1rem;
+  font-size: 1.125rem;
+}
+.article-simple p + p {
+  margin-top: 1.5rem;
+}
+.article-simple strong {
+  display: block;
+  margin-top: 2.5rem;
+  font-weight: 600;
+  color: #362f27;
+}
+
+/* Hide homepage-specific sections */
+#spotlight,
+#resources,
+#milestones {
+  display: none !important;
+}
+.hero-simple {
+  background-color: #d8e8f2;       /* Muted baby blue */
+  padding: 4rem 1rem 1.5rem;       /* top/right/left same, bottom much smaller */
+  text-align: center;
+  position: relative;
+  border-radius: 35px;
+  max-width: 1700px;
+  margin: 2rem auto 0;             /* center + top margin, no bottom margin */
+  border-bottom: 5px solid #362f27;/* thin brown line between blue and tan */
+}
+.hero-simple {
+  background-color: #d8e8f2;       /* Muted baby blue */
+  padding: 3rem 1rem 1.5rem;       /* top/right/left same, bottom smaller */
+  text-align: center;
+  position: relative;
+  border-radius: 8px;
+  max-width: 1700px;
+  margin: 2rem auto 0;             /* center + top margin, no bottom */
+  border-bottom: 5px solid #362f27;/* thin brown line */
+  
+  /* add these for hover */
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.hero-simple:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-6px);
+}
+/* simple.css */
+
+/* Base reset & retro font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Hero header box */
+.hero-simple {
+  background-color: #d8e8f2;
+  padding: 3rem 1rem 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 2rem auto 0;
+  border-bottom: 2px solid #362f27;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.hero-simple:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transform: translateY(-6px);
+}
+.hero-simple h1 {
+  font-size: 3rem;
+  color: #362f27;
+  margin: 0;
+}
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  text-decoration: none;
+  background-color: #d9782d;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.2s;
+}
+.back-button:hover {
+  background-color: #c66625;
+  transform: translateY(-2px);
+}
+
+/* Search UI */
+.search-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+.search-container input {
+  width: 70%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.search-container button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #d9782d;
+  color: #fff;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.search-container button:hover {
+  background-color: #c66625;
+}
+
+/* Results box */
+.results {
+  max-width: 700px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #f9f4ee;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+}
+.movie-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+  background: #fff;
+}
+.movie-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+.movie-card p {
+  margin: 0.5rem 0;
+}

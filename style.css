@@ -1,0 +1,625 @@
+/*──────────────────────────────────────────────────────────────────────────────
+   WWFTV RETRO THEME — REDONE
+──────────────────────────────────────────────────────────────────────────────*/
+
+/*────────── 1. VARIABLES & RESET ──────────────────────────────────────────────*/
+:root {
+  /* Palette (RGBA for muted backgrounds) */
+  --clr-tan:        #FDF5E6;
+  --clr-coral:      243,125,89;
+  --clr-red:        221,83,65;
+  --clr-teal:       104,199,193;
+  --clr-brown:      118,72,56;
+  --clr-yellow:     250,202,120;
+  --clr-text:       #4A3A31;
+  --clr-light:      #FFFFFF;
+
+  /* Typography */
+  --font-head:      'Playfair Display', serif;
+  --font-body:      'Poppins', sans-serif;
+  --fz-sm:          0.9rem;
+  --fz-md:          1rem;
+  --fz-lg:          1.25rem;
+  --fz-xl:          1.75rem;
+
+  /* Spacing */
+  --space-sm:       1rem;
+  --space-md:       2rem;
+  --space-lg:       3rem;
+
+  /* Effects */
+  --shadow:         rgba(0,0,0,0.1);
+  --transition:     0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: var(--font-body);
+  font-size: var(--fz-md);
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--clr-tan) url('textures/muted-texture.png') repeat;
+  color: var(--clr-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+img, svg, video {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul { list-style: none; }
+
+/*────────── 2. UTILITIES ──────────────────────────────────────────────────────*/
+.text-center    { text-align: center !important; }
+.mt-sm          { margin-top: var(--space-sm) !important; }
+.mb-sm          { margin-bottom: var(--space-sm) !important; }
+.d-flex         { display: flex !important; }
+.flex-center    { align-items: center; justify-content: center; }
+.hidden         { display: none !important; }
+
+/*────────── 3. HEADER & NAVIGATION (logo removed) ─────────────────────────────*/
+header {
+  position: sticky;
+  top: 0; left: 0; width: 100%;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 6px var(--shadow);
+  z-index: 100;
+}
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-sm) var(--space-md);
+}
+nav ul {
+  display: flex;
+  gap: var(--space-lg);
+}
+nav li { position: relative; }
+nav > ul > li > a {
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-md);
+  transition: color var(--transition);
+}
+nav > ul > li > a:hover {
+  color: rgba(var(--clr-coral),1);
+}
+/* Dropdown */
+nav li ul {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  background: rgba(var(--clr-tan),1);
+  box-shadow: 0 4px 12px var(--shadow);
+  white-space: nowrap;
+  margin-top: 4px;
+}
+nav li:hover > ul {
+  display: block;
+}
+nav li ul li a {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  transition: background var(--transition);
+}
+nav li ul li a:hover {
+  background: rgba(var(--clr-yellow),0.3);
+}
+
+/*────────── 4. HERO BANNER + BIG FLOATING LOGO ───────────────────────────────*/
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute; top: -10%; left: 0;
+  width: 100%; height: 120%;
+  background: url('images/hero-wide.png') center/cover no-repeat fixed;
+  filter: brightness(0.85);
+  z-index: 1;
+}
+.hero-placeholder {
+  position: relative;
+  z-index: 2;
+  width: 100%; height: 100%;
+}
+/* Big floating logo centered */
+.hero .floating-logo {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  z-index: 2;
+  transition: transform var(--transition);
+}
+.hero .floating-logo img {
+  width: 100%;
+  display: block;
+}
+.hero .floating-logo:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/*────────── 5. SECTIONS WITH MUTED BACKGROUNDS ───────────────────────────────*/
+.section {
+  padding: var(--space-lg) var(--space-md);
+  margin: 0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+/* Muted RGBA backgrounds */
+.section:nth-of-type(1) {
+  background: rgba(var(--clr-coral),0.1);
+}
+.section:nth-of-type(2) {
+  background: rgba(var(--clr-teal),0.1);
+}
+.section:nth-of-type(3) {
+  background: rgba(var(--clr-red),0.1);
+}
+.section:nth-of-type(4) {
+  background: rgba(var(--clr-brown),0.1);
+}
+.section:nth-of-type(5) {
+  background: rgba(var(--clr-yellow),0.1);
+}
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+.section h2 {
+  font-family: var(--font-head);
+  font-size: var(--fz-xl);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+/*────────── 6. STATISTICS GRID ───────────────────────────────────────────────*/
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: var(--space-lg);
+}
+.stat {
+  text-align: center;
+}
+.stat h3 {
+  font-size: 2rem;
+  color: rgba(var(--clr-coral),1);
+  margin-bottom: var(--space-xs);
+}
+.stat p {
+  font-size: var(--fz-md);
+}
+
+/*────────── 7. MISSION CALL‑OUT ──────────────────────────────────────────────*/
+.mission {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: var(--fz-md);
+  line-height: 1.6;
+  border-left: 4px solid rgba(var(--clr-red),1);
+  padding-left: var(--space-md);
+}
+/*──────────────────────────────────────────────────────────────────────────────
+   Timeline – Centered & Retro‑Vibe
+──────────────────────────────────────────────────────────────────────────────*/
+.timeline-container {
+  position: relative;
+  margin: 0 auto;
+  width: 90%;              /* center in viewport */
+  max-width: 1200px;
+  padding: var(--space-md) 0;
+  overflow: hidden;
+}
+
+/* Fun dotted line */
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  width: 90%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(var(--clr-brown),0.3) 0 8px,
+    transparent 8px 16px
+  );
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.timeline {
+  display: flex;
+  gap: var(--space-lg);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: var(--space-sm);
+  justify-content: center;  /* center items when fewer */
+  position: relative;
+  z-index: 1;
+}
+
+/* hide scrollbar */
+.timeline::-webkit-scrollbar { display: none; }
+.timeline { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Milestone cards */
+.timeline-item {
+  flex: 0 0 300px;
+  scroll-snap-align: center; /* center snap */
+  background: var(--clr-light);
+  border-radius: 12px;
+  padding: var(--space-md);
+  position: relative;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  font-family: var(--font-body);
+}
+
+/* Animated node marker */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px; height: 16px;
+  background: radial-gradient(circle, rgba(var(--clr-coral),1) 0%, rgba(var(--clr-red),1) 100%);
+  border: 2px solid var(--clr-light);
+  border-radius: 50%;
+  animation: pop 1.5s ease-in-out infinite;
+}
+@keyframes pop {
+  0%,100% { transform: translateX(-50%) scale(1); }
+  50%     { transform: translateX(-50%) scale(1.3); }
+}
+
+/* Hover lift */
+.timeline-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+/*────────── Muted Baby‑Blue Timeline Cards ──────────────────────────────────*/
+:root {
+  /* Baby‑blue for timeline cards */
+  --clr-babyblue: 208, 231, 249;
+}
+
+.timeline-item {
+  /* use a semi‑opaque baby‑blue layer over your texture */
+  background:
+    rgba(var(--clr-babyblue), 0.4) url('textures/noise.png') repeat;
+}
+/* Remove this entire rule to get rid of the dotted line */
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  width: 90%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(var(--clr-brown),0.3) 0 8px,
+    transparent 8px 16px
+  );
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Spotlight Section Styles */
+.spotlight {
+  background-color: #f9f4ee;
+  padding: 3em 1em;
+  text-align: center;
+}
+
+.spotlight-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.spotlight-image img {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 1em;
+}
+
+.spotlight-text {
+  flex: 1 1 300px;
+  margin-left: 2em;
+}
+
+.spotlight-text h2 {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+.spotlight-text p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .spotlight-content {
+    flex-direction: column;
+  }
+  .spotlight-text {
+    margin-left: 0;
+  }
+}
+/* Add smooth transition */
+.spotlight-image img,
+.spotlight-text {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover on the image: gently scale up */
+.spotlight-image:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* Hover on the text area: lift it slightly */
+.spotlight-text:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  cursor: default;
+}
+/* style.css */
+/* Container */
+.resources {
+  background-color: #fffdfa;
+  padding: 2.5em 1em;
+}
+.resources h2 {
+  text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+}
+
+/* List reset + layout */
+.resources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1em;
+}
+
+/* Each link box */
+.resource-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.resource-item a {
+  display: block;
+  padding: 1em;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Hover effect */
+.resource-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.resource-item:hover a {
+  color: #004499;
+}
+/* Make timeline cards 100% opaque */
+.event-card {
+  /* Replace any rgba(...) with a solid hex or rgb */
+  background-color: #e9f0f2;  /* light blue */
+  /* or whatever solid color you prefer */
+}
+
+/* If you’re using a slightly transparent container background too, fix that: */
+.timeline-container,
+.timeline {
+  background-color: #f9f4ee;  /* your page’s solid background */
+}
+
+/* And just in case, kill the dotted line entirely: */
+.timeline-line {
+  display: none !important;
+}
+/* ========== Decades Dropdown Solid Background ========== */
+nav ul li > ul {
+  background-color: #d8e8f2;  /* muted baby‑blue */
+  opacity: 1 !important;       /* kill any inherited translucency */
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Each decade link */
+nav ul li > ul li a {
+  display: block;
+  padding: 0.5em 1em;
+  background-color: #d8e8f2;  /* match the parent */
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+/* Hover state for clarity */
+nav ul li > ul li a:hover {
+  background-color: #c4dce7;  /* slightly darker blue on hover */
+}
+/* Writers Wheel */
+#writers-wheel {
+  padding: 3rem 1rem;
+  background: #fff9f2;
+  text-align: center;
+}
+#writers-wheel h2 {
+  margin-bottom: 1.5rem;
+  color: #362f27;
+}
+
+.wheel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  margin: 0 2rem;
+}
+.wheel::-webkit-scrollbar { display: none; }
+
+.writer-card {
+  flex: 0 0 120px;
+  margin: 0 0.5rem;
+  text-align: center;
+}
+.photo-placeholder {
+  width: 100%;
+  height: 120px;
+  background: #ececec;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+.writer-name {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Prev/Next buttons */
+.wheel-btn {
+  background: #d9782d;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wheel-btn:hover {
+  background: #c66625;
+}
+.prev  { position: absolute; left: 0;  transform: translateX(-50%); }
+.next  { position: absolute; right: 0; transform: translateX(50%); }
+.section-screenwriters .screenwriter-card {
+  /* ensure cards are consistent width */
+  width: 160px;
+  margin: 0.5rem;
+}
+
+.section-screenwriters .photo-placeholder {
+  /* force a square box */
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f0f0f0;
+}
+
+.section-screenwriters .photo-placeholder img {
+  /* make the image fill the box and crop */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* 1. Make the grid flow horizontally, wrapping to new rows */
+.section-screenwriters .screenwriter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  justify-items: center; /* center each card in its cell */
+  padding: 1rem 0;
+}
+
+/* 2. Card sizing stays the same */
+.section-screenwriters .screenwriter-card {
+  text-align: center;
+}
+
+/* 3. Name styling */
+.section-screenwriters .screenwriter-name a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+/* 4. Hover effect on the name link */
+.section-screenwriters .screenwriter-name a:hover {
+  color: #a349a4;           /* example accent color */
+  text-decoration: underline;
+}
+/* 1. Name hover effect */
+.section-screenwriters .screenwriter-name a {
+  transition: color 0.2s, transform 0.2s;
+}
+.section-screenwriters .screenwriter-name a:hover {
+  color: #a349a4;        /* your accent color */
+  transform: scale(1.05); /* slight pop */
+  text-decoration: underline;
+}
+
+/* 2. Playing‑card style on each photo */
+.section-screenwriters .photo-placeholder {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid #333;               /* dark frame */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* subtle lift */
+  background: #fff;                     /* white card face */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-screenwriters .photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

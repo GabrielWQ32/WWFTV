@@ -1,0 +1,101 @@
+/* genre.css — retro‑style full‑screen background with opaque text boxes */
+
+:root {
+  --retro-tan: #d2b48c;
+  --retro-cream: rgba(255,255,255,0.85);
+  --accent-orange: #e07a5f;
+  --text-dark: #2d2d2d;
+  --header-opacity: 0.9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--text-dark);
+  background: url('../images/animation.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.genre-header {
+  position: relative;
+  background: rgba(var(--retro-tan-rgb, 210,180,140), var(--header-opacity));
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.genre-title {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* HOME BUTTON */
+.home-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--accent-orange);
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.home-button:hover {
+  background: var(--text-dark);
+}
+
+/* MAIN CONTENT GRID */
+.genre-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* EACH MOVIE BOX */
+.movie-box {
+  background: var(--retro-cream);
+  padding: 1rem;
+  border: 2px solid var(--accent-orange);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.movie-box h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+}
+.movie-box p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (min-width: 600px) {
+  .genre-header {
+    padding: 2rem 1rem;
+  }
+  .genre-title {
+    font-size: 3rem;
+  }
+  .home-button {
+    top: 1.25rem;
+    left: 1.25rem;
+  }
+}
